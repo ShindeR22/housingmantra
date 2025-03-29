@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+
+    <!-- Metas -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="keywords" content="HTML5 Template Avo onepage themeforest" />
+    <meta name="description" content="Avo - Onepage Multi-Purpose HTML5 Template" />
+    <meta name="author" content="" />
+
+    <!-- Title  -->
+    <title>Avo</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="img/favicon.ico" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Comfortaa:wght@300..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+
+    <!-- Plugins -->
+    <link rel="stylesheet" href="css/plugins.css" />
+
+    <!-- Core Style Css -->
+    <link rel="stylesheet" href="css/style-light.css" id="light-theme" />
+        <link rel="stylesheet" href="css/style-dark.css" id="dark-theme"  />
+
+</head>
+
+<body>
+
+
+    <!-- ==================== Start Loading ==================== -->
+
+    <div id="preloader">
+    </div>
+
+    <!-- ==================== End Loading ==================== -->
+
+
+
+    <!-- ==================== Start progress-scroll-button ==================== -->
+
+    <div class="progress-wrap cursor-pointer">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+        </svg>
+    </div>
+
+    <!-- ==================== End progress-scroll-button ==================== -->
+
+
+
+    <!-- ==================== Start cursor ==================== -->
+
+    <div class="mouse-cursor cursor-outer"></div>
+    <div class="mouse-cursor cursor-inner"></div>
+
+    <!-- ==================== End cursor ==================== -->
+
+
+
+    <!-- ==================== Start Navbar ==================== -->
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <!-- Logo -->
+            <a class="logo" href="#">
+                <img id="navbar-logo" src="img/logo_kanika.png" alt="logo" style="height: 60px; width: auto; padding-top: 4px;">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="icon-bar"><i class="fas fa-bars"></i></span>
+            </button>
+
+            <!-- navbar links -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html" style="font-size: 15px;">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html" style="font-size: 15px;" >About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="works.html" style="font-size: 15px;">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html" style="font-size: 15px;">Contact</a>
+                    </li>
+                
+                </ul>
+
+                <div class="search">
+                    <span class="icon pe-7s-search cursor-pointer" style="font-size: 22px;"></span>
+                        <div class="search-form text-center custom-font">
+                        <form>
+                            <input type="text" name="search" placeholder="Search" style="font-size: 15px;">
+                        </form>
+                            <span class="close pe-7s-close cursor-pointer" style="font-size: 15px;"></span>
+                        </div>
+                </div>
+
+                <!-- Theme Toggle Button -->
+                <a id="theme-toggle" class="theme-toggle nav-item">
+                    <i class="fas fa-sun nav-link" style="font-size: 22px;"></i>
+                </a>
+
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const themeToggle = document.getElementById("theme-toggle");
+    const lightThemeLink = document.querySelector('link[href="css/style-light.css"]');
+    const darkThemeLink = document.querySelector('link[href="css/style-dark.css"]');
+    const themeIcon = themeToggle.querySelector('i');
+    const logo = document.getElementById("navbar-logo");
+
+    // Check if a theme is already saved in localStorage
+    const currentTheme = localStorage.getItem("theme");
+
+    // Set the default to dark theme if no theme is saved in localStorage
+    if (currentTheme) {
+        if (currentTheme === "dark") {
+            darkThemeLink.disabled = false;
+            lightThemeLink.disabled = true;
+            themeIcon.classList.replace("fa-moon", "fa-sun"); // Change icon to sun
+            document.body.classList.add("dark-mode");
+            logo.src = 'img/logo_kanika.png'; // Ensure the correct logo is shown in dark mode
+        } else {
+            lightThemeLink.disabled = false;
+            darkThemeLink.disabled = true;
+            themeIcon.classList.replace("fa-sun", "fa-moon"); // Change icon to moon
+            document.body.classList.add("light-mode");
+        }
+    } else {
+        // Default to dark theme if no theme is saved
+        darkThemeLink.disabled = false;
+        lightThemeLink.disabled = true;
+        themeIcon.classList.replace("fa-moon", "fa-sun"); // Default icon to sun
+        document.body.classList.add("dark-mode");
+        logo.src = 'img/logo_kanika.png'; // Correct logo for dark mode
+    }
+
+    // Event listener for toggling the theme
+    themeToggle.addEventListener("click", function () {
+        if (darkThemeLink.disabled) {
+            // Enable dark theme and disable light theme
+            darkThemeLink.disabled = false;
+            lightThemeLink.disabled = true;
+            themeIcon.classList.replace("fa-moon", "fa-sun");
+            localStorage.setItem("theme", "dark");
+            document.body.classList.add("dark-mode");
+            document.body.classList.remove("light-mode");
+            logo.src = 'img/logo_kanika.png'; // Correct logo for dark mode
+        } else {
+            // Enable light theme and disable dark theme
+            lightThemeLink.disabled = false;
+            darkThemeLink.disabled = true;
+            themeIcon.classList.replace("fa-sun", "fa-moon");
+            localStorage.setItem("theme", "light");
+            document.body.classList.add("light-mode");
+            document.body.classList.remove("dark-mode");
+        }
+    });
+
+    // Function to check scroll position and update the logo image
+    function handleScroll() {
+        const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+
+        // Change logo after 10% scroll in light mode (not in dark mode)
+        if (document.body.classList.contains('light-mode') && scrollPercentage > 4) {
+            logo.src = 'img/logo-black.jpeg'; // Change logo to black version
+        } else if (document.body.classList.contains('light-mode') && scrollPercentage <= 4) {
+            logo.src = 'img/logo_kanika.png'; // Reset to original logo
+        }
+    }
+
+    // Attach scroll event listener
+    window.addEventListener("scroll", handleScroll);
+
+    // Ensure the correct logo color when theme toggles
+    themeToggle.addEventListener("click", function () {
+        handleScroll(); // Reapply scroll effect when toggling themes
+    });
+
+    // Initial check for scroll position on page load
+    handleScroll();
+});
+
+    </script>
+
+
+    <!-- ==================== End Navbar ==================== -->
+
+
+
+    <!-- ==================== Start Slider ==================== -->
+
+    <header class="pages-header bg-img valign parallaxie" data-background="img/slid/1.jpg" data-overlay-dark="8">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="cont text-center">
+                        <h1>About Us</h1>
+                        <div class="path">
+                            <a href="#0">Home</a><span>/</span><a href="#0" class="active">About Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== End Slider ==================== -->
+
+
+
+    <!-- ==================== Start Intro ==================== -->
+
+    <section class="intro-section section-padding pb-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-4">
+                <div class="htit sm-mb30">
+                    <h2>Who We Are?</h2>
+                </div>
+            </div>
+            <div class="col-lg-8 offset-lg-1 col-md-8">
+                <div class="text" data-splitting>
+                    <p class="wow txt">
+                        Aumrienz Cloud Technologies is a leading provider of Salesforce solutions, 
+                        specializing in consulting, CRM customization, AppExchange development, 
+                        cloud advisory, and corporate training.
+
+                    </p>
+                    <br>
+                    <p class="wow txt">
+                        Founded by Kanika Chauhan, a Salesforce expert with 10+ years of experience, 
+                        we empower businesses across finance, healthcare, retail, and tech with tailored, 
+                        innovative solutions.
+                    </p>
+                    <br>
+                    <p class="wow txt">
+                        Our mission is to drive digital transformation through scalable and future-ready 
+                        Salesforce implementations, ensuring customer success at every step.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+    <!-- ==================== End Intro ==================== -->
+
+
+
+    <!-- ==================== Start Services ==================== -->
+
+    <section class="services section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="item md-mb50 wow fadeInUp" data-wow-delay=".3s" 
+                    style="border-radius: 15px; padding: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); transition: opacity 0.8s ease-in-out;">
+                    <span class="icon pe-7s-gleam"></span>
+                    <h6 >Salesforce Consulting & Implementation</h6>
+                    <p>Aumrienz Cloud Technologies provides expert Salesforce consulting and implementation services to help businesses streamline their CRM operations.</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="item md-mb50 wow fadeInUp" data-wow-delay=".5s"
+                    style="border-radius: 15px; padding: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); transition: opacity 0.8s ease-in-out;">
+                    <span class="icon pe-7s-phone"></span>
+                    <h6>AppExchange Development & Support</h6>
+                    <p>We specialize in AppExchange app development, offering end-to-end solutions from design to deployment and ongoing support.</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="item wow fadeInUp" data-wow-delay=".7s"
+                    style="border-radius: 15px; padding: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); transition: opacity 0.8s ease-in-out;">
+                    <span class="icon pe-7s-magic-wand"></span>
+                    <h6>Salesforce Support & Maintenance</h6>
+                    <p>Our team provides dedicated Salesforce support and maintenance services, ensuring smooth CRM operations and system efficiency.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-lg-4">
+                <div class="item md-mb50 wow fadeInUp" data-wow-delay="1s"
+                    style="border-radius: 15px; padding: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); transition: opacity 0.8s ease-in-out;">
+                    <span class="icon pe-7s-users"></span>
+                    <h6>Outsourcing & Staff Augmentation</h6>
+                    <p>We offer expert Salesforce professionals for outsourcing and staff augmentation to enhance your workforce and project execution.</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="item md-mb50 wow fadeInUp" data-wow-delay="1.2s"
+                    style="border-radius: 15px; padding: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); transition: opacity 0.8s ease-in-out;">
+                    <span class="icon pe-7s-study"></span>
+                    <h6>Corporate Salesforce Trainings</h6>
+                    <p>Our corporate Salesforce training programs equip businesses with the necessary skills and expertise to maximize their CRM investments.</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="item wow fadeInUp" data-wow-delay="1.4s"
+                    style="border-radius: 15px; padding: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); transition: opacity 0.8s ease-in-out;">
+                    <span class="icon pe-7s-id"></span>
+                    <h6>Individual Trainings & Career Guidance</h6>
+                    <p>We provide individual Salesforce training and career guidance to help professionals advance in their Salesforce careers.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-lg-4 offset-lg-4">
+                <div class="item wow fadeInUp" data-wow-delay="1.6s"
+                    style="border-radius: 15px; padding: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); transition: opacity 0.8s ease-in-out;">
+                    <span class="icon pe-7s-config"></span>
+                    <h6>Product Development</h6>
+                    <p>We assist businesses in developing and optimizing Salesforce-powered products tailored to their unique needs.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+/* Ensure 3 cards per row on large screens */
+@media (min-width: 992px) {
+    .col-lg-4 {
+        flex: 0 0 33.333%;
+        max-width: 33.333%;
+    }
+}
+
+/* Responsive design for tablets and mobile */
+@media (max-width: 991px) {
+    .col-md-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 767px) {
+    .col-sm-12 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+/* Card styling */
+.achievement-item {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    height: 100%;
+}
+
+/* Hover effect */
+.achievement-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 40px rgba(117, 218, 180, 0.3);
+}
+
+/* Icon styling */
+.icon-style {
+    font-size: 50px;
+    color: #75dab4;
+    margin-bottom: 15px;
+}
+
+/* Highlight text */
+.highlight {
+    color: #75dab4;
+    font-weight: bold;
+}
+
+/* Fade-in animation */
+.achievement-item {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease-in-out forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Smooth fade-in animation for section */
+.work-carousel {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 0.8s ease-in-out forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Headings with gradient animation */
+
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.sec-head h6:hover {
+    letter-spacing: 1.5px;
+}
+
+/* Staggered floating animation */
+.col-lg-4 {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeIn 0.8s ease-in-out forwards, floating 4s ease-in-out infinite;
+}
+
+.col-lg-4:nth-child(1) { animation-delay: 0.2s; }
+.col-lg-4:nth-child(2) { animation-delay: 0.4s; }
+.col-lg-4:nth-child(3) { animation-delay: 0.6s; }
+.col-lg-4:nth-child(4) { animation-delay: 0.8s; }
+.col-lg-4:nth-child(5) { animation-delay: 1s; }
+.col-lg-4:nth-child(6) { animation-delay: 1.2s; }
+
+/* @keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+} */
+
+/* @keyframes floating {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+} */
+
+/* Card hover effect with glowing border and parallax */
+.col-lg-4 > div {
+    position: relative;
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out, background 0.4s ease-in-out, border 0.3s ease-in-out;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    min-height: 230px;
+    /* border: 2px solid transparent; */
+    will-change: transform;
+}
+
+/* Glowing light effect */
+/* .col-lg-4 > div:hover {
+    transform: translateY(-15px) scale(1.05);
+    box-shadow: 0 20px 60px rgba(117, 218, 180, 0.3);
+    border: 2px solid rgba(117, 218, 180, 0.7);
+} */
+
+/* Animated gradient glow effect */
+.col-lg-4 > div::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 15px;
+    background: linear-gradient(45deg, rgba(117, 218, 180, 0.8), rgba(255, 255, 255, 0.2));
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.col-lg-4 > div:hover::after {
+    opacity: 1;
+}
+
+/* 3D Parallax Effect */
+.col-lg-4 > div {
+    transform-style: preserve-3d;
+}
+
+/* .col-lg-4 > div:hover {
+    transform: perspective(1000px) rotateX(8deg) rotateY(8deg);
+} */
+
+/* Rotating Icons on Hover */
+.col-lg-4 > div i {
+    transition: transform 0.4s ease-in-out;
+}
+
+/* .col-lg-4 > div:hover i {
+    transform: rotate(15deg) scale(1.2);
+} */
+
+/* Floating light glow effect */
+.col-lg-4 > div::before {
+    content: "";
+    position: absolute;
+    top: -10%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(rgba(117, 218, 180, 0.4), transparent);
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+.col-lg-4 > div:hover::before {
+    opacity: 1;
+}
+
+
+</style>
+
+
+    <!-- ==================== End Services ==================== -->
+
+
+
+    <!-- ==================== Start block-sec ==================== -->
+
+    <section class="block-sec">
+        <div class="background bg-img section-padding pb-0" data-background="img/slid/1.jpg" data-overlay-dark="8">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="vid-area">
+                            <div class="vid-icon">
+                                <a class="vid" href="https://youtu.be/oMRR_uRfvRw?si=vjCjqZ7Gt4kAxaMo">
+                                    <div class="vid-butn">
+                                        <span class="icon">
+                                            <i class="fas fa-play"></i>
+                                        </span>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="cont">
+                                <h3 class="wow" data-splitting>We are who we are, no other way around it.</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 offset-lg-1">
+                        <div class="testim-box">
+                            <div class="head-box">
+                                <h6 class="wow fadeIn" data-wow-delay=".5s">Our Happy Clients</h6>
+                                <h4 class="wow fadeInLeft" data-wow-delay=".5s">What Client's Say?</h4>
+                            </div>
+                            <div class="slic-item wow fadeInUp" data-wow-delay=".5s">
+                                <div class="item">
+                                    <p>Aumrienz Clouds was amazing to work with.  
+                                    Their team solved every challenge we faced.  
+                                    Highly recommended for Salesforce projects!</p>
+                                    <div class="info">
+                                        <div class="img">
+                                            <div class="img-box">
+                                                <img src="img/clients/1.jpg" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="cont">
+                                            <div class="author">
+                                                <h6 class="author-name custom-font">Hayya Lee</h6>
+                                                <span class="author-details">CEO, NextChapters</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <p>Great experience, easy communication.  
+                        Delivered exactly what we needed.  
+                        100% satisfied with the outcome!</p>
+                                    <div class="info">
+                                        <div class="img">
+                                            <div class="img-box">
+                                                <img src="img/clients/2.jpg" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="cont">
+                                            <div class="author">
+                                                <h6 class="author-name custom-font">Teamwear</h6>
+                                                <span class="author-details">Pacelli Sports</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <p>Top-notch Salesforce developers!  
+                        Solved my APEX issues quickly.  
+                        Professional and highly skilled team.</p>
+                                    <div class="info">
+                                        <div class="img">
+                                            <div class="img-box">
+                                                <img src="img/clients/3.jpg" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="cont">
+                                            <div class="author">
+                                                <h6 class="author-name custom-font">Boca Ratoo</h6>
+                                                <span class="author-details">Satisfied Client</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== End block-sec ==================== -->
+
+
+
+    <!-- ==================== Start Skills Circle ==================== -->
+
+    <section class="skills-circle sub-bg pt-50 pb-50">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="item wow fadeInLeft" data-wow-delay="6">
+                                    <div class="skill" data-value="0.99">
+                                        <span class="custom-font">99.99%</span>
+                                    </div>
+                                    <div class="cont">
+                                        <span>Client</span>
+                                        <h6>Satisfaction</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="item wow fadeInLeft" data-wow-delay=".3">
+                                    <div class="skill" data-value="0.988">
+                                        <span class="custom-font">99.98%</span>
+                                    </div>
+                                    <div class="cont">
+                                        <span>Successful</span>
+                                        <h6>Projects</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== End Skills Circle ==================== -->
+
+
+
+    <!-- ==================== Start Team ==================== -->
+
+    <section class="team section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 valign">
+                    <div class="full-width">
+                        <div class="sec-head custom-font mb-0">
+                            <h6 style="font-size: 28px; font-weight: 500; color: #75dab4; margin-bottom: 5px; ">Employees</h6>
+                            <h3>Our Team.</h3>
+                        </div>
+                        <div class="navs mt-30 wow fadeInUp" data-wow-delay=".3s">
+                            <span class="prev cursor-pointer">
+                                <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="next cursor-pointer">
+                                <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="team-container">
+                        <div class="item wow fadeInUp" data-wow-delay=".3s">
+                            <div class="img wow imago">
+                                <img src="img/team/01.jpg" alt="">
+                            </div>
+                            <div class="info">
+                                <h5>Hasib sharif</h5>
+                                <span>General Manager</span>
+                                <div class="social">
+                                    <a href="#0"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#0"><i class="fab fa-twitter"></i></a>
+                                    <a href="#0"><i class="fab fa-behance"></i></a>
+                                    <a href="#0"><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item wow fadeInUp" data-wow-delay=".3s">
+                            <div class="img wow imago">
+                                <img src="img/team/02.jpg" alt="">
+                            </div>
+                            <div class="info">
+                                <h5>Jonson Leo</h5>
+                                <span>Founder</span>
+                                <div class="social">
+                                    <a href="#0"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#0"><i class="fab fa-twitter"></i></a>
+                                    <a href="#0"><i class="fab fa-behance"></i></a>
+                                    <a href="#0"><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item wow fadeInUp" data-wow-delay=".3s">
+                            <div class="img wow imago">
+                                <img src="img/team/03.jpg" alt="">
+                            </div>
+                            <div class="info">
+                                <h5>Leio Man</h5>
+                                <span>Founder</span>
+                                <div class="social">
+                                    <a href="#0"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#0"><i class="fab fa-twitter"></i></a>
+                                    <a href="#0"><i class="fab fa-behance"></i></a>
+                                    <a href="#0"><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item wow fadeInUp" data-wow-delay=".3s">
+                            <div class="img wow imago">
+                                <img src="img/team/4.jpg" alt="">
+                            </div>
+                            <div class="info">
+                                <h5>Robert Front</h5>
+                                <span>CEO Founder</span>
+                                <div class="social">
+                                    <a href="#0"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#0"><i class="fab fa-twitter"></i></a>
+                                    <a href="#0"><i class="fab fa-behance"></i></a>
+                                    <a href="#0"><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item wow fadeInUp" data-wow-delay=".3s">
+                            <div class="img wow imago">
+                                <img src="img/team/5.jpg" alt="">
+                            </div>
+                            <div class="info">
+                                <h5>Legender Mao</h5>
+                                <span>3D Visualization</span>
+                                <div class="social">
+                                    <a href="#0"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#0"><i class="fab fa-twitter"></i></a>
+                                    <a href="#0"><i class="fab fa-behance"></i></a>
+                                    <a href="#0"><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item wow fadeInUp" data-wow-delay=".3s">
+                            <div class="img wow imago">
+                                <img src="img/team/6.jpg" alt="">
+                            </div>
+                            <div class="info">
+                                <h5>Matt Huk</h5>
+                                <span>3D Visualization</span>
+                                <div class="social">
+                                    <a href="#0"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#0"><i class="fab fa-twitter"></i></a>
+                                    <a href="#0"><i class="fab fa-behance"></i></a>
+                                    <a href="#0"><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== End Team ==================== -->
+
+
+
+    <!-- ==================== Start Minimal-Area ==================== -->
+
+<section class="min-area sub-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="img">
+                        <img class="thumparallax-down" src="https://plus.unsplash.com/premium_photo-1680296669146-b6c258cbc62d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" style="height:500px;">
+                    </div>
+                </div>
+                <div class="col-lg-6 valign">
+                    <div class="content">
+                    <h4 class="wow custom-font" data-splitting>About Us</h4>
+                    <p class="wow txt" data-splitting>
+                        Aumrienz Cloud Technologies provides end-to-end Salesforce solutions, including consulting, CRM customization, app development, outsourcing, and corporate training.
+                    </p>
+                    <p class="wow txt" data-splitting>
+                        Founded by Kanika Chauhan, a Salesforce expert with 10+ years of experience, we empower businesses with innovative solutions.
+                    </p>
+                    <ul class="feat">
+                        <li class="wow fadeInUp" data-wow-delay=".2s">
+                            <h6 style="font-size: 28px; font-weight: 500;  margin-bottom: 5px; "><span>1</span> Our Mission</h6>
+                            <p>Empowering businesses with expert Salesforce solutions, training, and consulting.</p>
+                        </li>
+                        <li class="wow fadeInUp" data-wow-delay=".4s">
+                            <h6 style="font-size: 28px; font-weight: 500; margin-bottom: 5px; "><span>2</span> Our Vision</h6>
+                            <p>To be a global leader in Salesforce solutions, enabling digital transformation.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- ==================== End Minimal-Area ==================== -->
+
+
+
+    <!-- ==================== Start clients Brands ==================== -->
+
+    <section class="clients section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 valign">
+                    <div class="sec-head custom-font mb-0">
+                        <h6 style="font-size: 28px; font-weight: 500; color: #75dab4; margin-bottom: 5px; " >Clients</h6>
+                        <h3>Our <br> Clients.</h3>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div>
+                        <div class="row bord">
+                            <div class="col-md-4 col-6 brands">
+                                <div class="item wow fadeIn" data-wow-delay=".3s">
+                                    <div class="img">
+                                        <img class="logo-img" src="img/client4.png" alt=""style="max-width: 100%; height: auto; transition: transform 0.3s ease-in-out;">
+                                        <a href="https://forcegalaxy360.com/" target="_blank" class="link">www.forcegalaxy360.com</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 brands">
+                                <div class="item wow fadeIn" data-wow-delay=".6s">
+                                    <div class="img">
+                                        <img class="logo-img" src="img/client3.png" alt=""style="max-width: 100%; height: auto; transition: transform 0.3s ease-in-out;">
+                                        <a href="https://www.teamwear.ie/" target="_blank" class="link">www.teamwear.com</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 brands">
+                                <div class="item wow fadeIn" data-wow-delay=".8s">
+                                    <div class="img">
+                                        <img class="logo-img" src="img/client1.png" alt=""style="max-width: 100%; height: auto; transition: transform 0.3s ease-in-out;">
+                                        <a href="https://kassoehousing.com/" target="_blank" class="link">www.staycentral.co.uk</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 col-6 brands">
+                                <div class="item wow fadeIn" data-wow-delay=".4s">
+                                    <div class="img invert">
+                                        <img class="logo-img " src="img/client5light.png" alt=""style="max-width: 100%; height: auto; transition: transform 0.3s ease-in-out;">
+                                        <a href="https://gotugende.com/" target="_blank" class="link">www.tugende.com</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 brands">
+                                <div class="item wow fadeIn" data-wow-delay=".7s">
+                                    <div class="img">
+                                        <img class="logo-img" src="img/client-2.png" alt=""style="max-width: 100%;height: auto; transition: transform 0.3s ease-in-out;">
+                                        <a href="https://www.diaceutics.com/" target="_blank" class="link">www.diaceutics.com</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 brands">
+                                <div class="item wow fadeIn" data-wow-delay=".7s">
+                                    <div class="img">
+                                        <img class="logo-img" src="http://nextchapterpropertysolutions.com/wp-content/uploads/2024/09/1-ncps-logo.png" alt=""style="max-width: 100%; height: auto; transition: transform 0.3s ease-in-out;">
+                                        <a href="https://nextchapterpropertysolutions.com/" target="_blank" class="link">www.nextchapterpropertysolutions.com</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <style>
+        /* Default Style - Logos Centered */
+        .clients .img {
+            /* display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px; */
+            background: transparent;
+        }
+    
+        .clients .img img {
+            max-width: 100%;
+            height: auto;
+            transition: filter 0.3s ease-in-out, mix-blend-mode 0.3s ease-in-out;
+        }
+    
+        /* Dark Mode - Invert Logos */
+        @media (prefers-color-scheme: dark) {
+            .clients  .img img {
+                filter: invert(1);
+                mix-blend-mode: difference;
+            }
+        }
+    </style>
+
+
+    <!-- ==================== End clients Brands ==================== -->
+
+
+
+    <!-- ==================== Start call-to-action ==================== -->
+
+    <section class="call-action section-padding sub-bg bg-img" data-background="img/pattern.png">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-lg-9">
+                    <div class="content sm-mb30">
+                        <h6 class="wow" data-splitting>Let’s Talk</h6>
+                        <h2 class="wow custom-font" data-splitting>about your <b>next project</b>.</h2>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-lg-3 valign">
+                    <a href="contact.html" class="btn-curve btn-lit" style="border-color: gray; color: gray; border-radius:15px;"><span>Get In Touch</span></a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== End call-to-action ==================== -->
+
+
+
+    <!-- ==================== Start Footer ==================== -->
+
+   
+    <footer class="footer-half sub-bg section-padding pb-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="cont">
+                    <div class="logo">
+                        <a href="#0">
+                            <img src="img/logo_kanika.png" alt="Aumrienz Clouds Logo" style="height: 60px; width: auto;">
+                        </a>
+                    </div>
+                    <div class="con-info custom-font" style="font-size: 18px;">
+                        <ul>
+                            <li><span>Email : </span> contact@aumrienzclouds.com</li>
+                            <li><span>Phone : </span> +91-6352156886</li>
+                            <li><span>Website : </span> 
+                                <a href="https://www.forcegalaxy360.com" target="_blank">www.forcegalaxy360.com</a> & 
+                                <a href="https://www.aumrienz.com" target="_blank">aumrienz.com</a>
+                            </li>
+                            <li><span>Location : </span> Udyog Vihar Phase 1, Sector 20, Gurugram, Haryana 122016</li>
+                        </ul>
+                    </div>
+                    <div class="social-icon" style="font-size: 18px;">
+                        <h6 class="custom-font stit simple-btn">Follow Us</h6>
+                        <div class="social">
+                            <a href="https://www.youtube.com/c/forceGalaxy" class="icon" target="_blank">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/kanika-chauhan-b130a0100/" class="icon" target="_blank">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/company/aumrienz-clouds-pvt-ltd" class="icon" target="_blank">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 offset-lg-2">
+                <div class="subscribe mb-50">
+                    <h6 class="custom-font stit simple-btn" style="font-size: 20px;">Newsletter</h6>
+                    <p style="font-size: 18px;">Sign up for our newsletter!</p>
+                    <form>
+                        <div class="form-group custom-font">
+                            <input type="email" name="subscribe" placeholder="Your Email" style="font-size: 16px;">
+                            <button class="cursor-pointer" style="font-size: 18px; padding: 10px 20px;">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="insta">
+                    <h6 class="custom-font stit simple-btn" style="font-size: 20px;">Instagram Post</h6>
+                    <div class="insta-gallary">
+                        <a href="#0">
+                            <img src="img/insta/1.jpg" alt="Instagram Image 1">
+                        </a>
+                        <a href="#0">
+                            <img src="img/insta/2.jpg" alt="Instagram Image 2">
+                        </a>
+                        <a href="#0">
+                            <img src="img/insta/3.jpg" alt="Instagram Image 3">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyrights text-center">
+            <!-- <p style="font-size: 16px;">© 2020, Aumrienz Clouds. Made with passion by <a href="https://leoapex.com/">UI-ThemeZ</a>.</p> -->
+            <a href="https://leoapex.com/" target="_blank" style="font-size: 16px; margin-top: 5px;">
+            Aumrienz Clouds©2025 All rights reserved.<br>
+            Made with ❤️ by <strong>Leo Apex</strong>
+            </a>
+        </div>
+    </div>
+</footer>
+    <!-- ==================== End Footer ==================== -->
+
+
+
+
+
+
+    <!-- jQuery -->
+    <script src="js/jquery-3.0.0.min.js"></script>
+    <script src="js/jquery-migrate-3.0.0.min.js"></script>
+
+    <!-- plugins -->
+    <script src="js/plugins.js"></script>
+
+    <!-- custom scripts -->
+    <script src="js/scripts.js"></script>
+
+</body>
+
+
+<!-- Mirrored from ui-themez.smartinnovates.net/items/avo/avo-dark/about.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 03 Feb 2025 08:15:51 GMT -->
+
+</html>
